@@ -1,0 +1,15 @@
+
+  <div class="card" style="width: 18rem">
+    <img [src]="card?.image" class="card-img-top" alt="Image not found" />
+    <div class="card-body">
+      <h5 class="card-title">{{ card?.word }}</h5>
+      <p class="card-text">
+        {{ card?.meaning }}
+      </p>
+      <p class="card-text">
+        {{ card?.type }}
+      </p>
+      <a [routerLink]="['/detail', card?.id]" class="btn btn-primary">Detail</a>
+    </div>
+  </div>
+

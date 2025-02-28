@@ -1,0 +1,64 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="mt-5">
+    <div>
+      <label for="word">Word:</label>
+      <input id="word" formControlName="word" />
+      <div class="error--mess" *ngIf="form.get('word')?.invalid && form.get('word')?.touched">
+        Word is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="meaning">Meaning:</label>
+      <input id="meaning" formControlName="meaning" />
+      <div class="error--mess" *ngIf="form.get('meaning')?.invalid && form.get('meaning')?.touched">
+        Meaning is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="example">Example:</label>
+      <input id="example" formControlName="example" />
+      <div class="error--mess" *ngIf="form.get('example')?.invalid && form.get('example')?.touched">
+        Example is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="image">Image URL:</label>
+      <input id="image" formControlName="image" />
+      <div class="error--mess" *ngIf="form.get('image')?.invalid && form.get('image')?.touched">
+        Image URL is required.
+      </div>
+    </div>
+  
+  
+    <div>
+      <label for="type">Type:</label>
+      <select id="type" formControlName="type">
+        <option value="" disabled>Select a type</option>
+        @for (type of types; track type) {
+        <option [value]="type">{{ type }}</option>
+        }
+      </select>
+      <div class="error--mess" *ngIf="form.get('type')?.invalid && form.get('type')?.touched">
+        type is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="category">Category:</label>
+      <select id="category" formControlName="category">
+        <option value="" disabled>Select a category</option>
+        @for (category of categories; track category) {
+        <option [value]="category">{{ category }}</option>
+        }
+      </select>
+      <div class="error--mess" *ngIf="form.get('category')?.invalid && form.get('category')?.touched">
+        Category is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+    <button type="button" (click)="onReset()">Reset</button>
+  </form>
+  
